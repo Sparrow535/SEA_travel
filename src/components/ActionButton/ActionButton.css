@@ -1,0 +1,64 @@
+.action-button {
+  --button-text: #d7bb77;
+
+  border: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: var(--button-text);
+  cursor: pointer;
+
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration-line: underline;
+  text-decoration-color: currentcolor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.24em;
+  padding: 0;
+
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.action-button:hover,
+.action-button:focus-visible {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.action-button:active {
+  transform: translateY(0);
+}
+
+.action-button:focus-visible {
+  outline: 2px solid rgb(242 238 230 / 72%);
+  outline-offset: 3px;
+}
+
+.action-button--sm {
+  font-size: 1rem;
+}
+
+.action-button--md {
+  font-size: 1.24rem;
+}
+
+.action-button--lg {
+  font-size: 1.5rem;
+}
+
+.action-button--primary {
+  --button-bg: #0f1e46;
+  --button-text: #d7bb77;
+}
+
+.action-button--secondary {
+  --button-bg: #d7bb77;
+  --button-text: #0f1e46;
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Open+Sans:wght@400;500&family=Tenor+Sans&display=swap');
 
 @font-face {
   font-family: 'NORD';
@@ -21,9 +21,12 @@
 }
 
 :root {
+  --color-gold-rgb: 214 181 133;
+  --color-gold: rgb(var(--color-gold-rgb));
   --font-nord: 'NORD', 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
   --font-tensor: 'Tensor Sans', 'Tenor Sans', var(--font-nord);
   --font-montserrat: 'Montserrat', var(--font-nord);
+  --font-open-sans: 'Open Sans', var(--font-nord);
 
   font-family: var(--font-nord);
   line-height: 1.5;
@@ -35,6 +38,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
 
 * {
   box-sizing: border-box;
