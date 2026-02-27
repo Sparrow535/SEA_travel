@@ -1,0 +1,117 @@
+.popular-tours {
+  position: relative;
+  margin-top: clamp(2rem, 6vw, 4.5rem);
+  padding: clamp(1.8rem, 4vw, 3rem) 0 clamp(2.2rem, 4.8vw, 3.8rem);
+  background: #192442;
+  height: 85vh;
+  overflow: hidden;
+}
+
+.popular-tours__eyebrow {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  text-align: center;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-nord);
+  font-size: clamp(0.8rem, 16px, 1.25rem);
+}
+
+.popular-tours__title {
+  position: relative;
+  margin: 0.35rem 0 clamp(1.2rem, 2.8vw, 2.2rem);
+  text-align: center;
+  font-family: var(--font-tensor);
+  font-size: clamp(2rem, 5.4vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #f0f3ff;
+  z-index: 2;
+}
+
+.popular-tours__gallery {
+  position: absolute;
+  z-index: 1;
+  top: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 5vw, 6rem);
+}
+
+.popular-tours__gallery article {
+  max-width: 100%;
+}
+
+.popular-tours__peek-link,
+.popular-tours__feature-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popular-tours__feature-link {
+  position: relative;
+}
+
+.popular-tours__gallery .popular-tours__peek {
+  position: relative;
+  width: 40%;
+}
+
+.popular-tours__gallery .popular-tours__peek img {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.popular-tours__gallery .popular-tours__peek::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(14 29 65 / 50%);
+  pointer-events: none;
+}
+
+.popular-tours__gallery .popular-tours__feature {
+  position: relative;
+  width: 100%;
+}
+.popular-tours__card {
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  transform: translate(0, -50%);
+  width: 40%;
+  background: var(--color-gold);
+  padding: 5% 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(0.2rem, 0.1vw, 0.75rem);
+}
+.popular-tours__card h3 {
+  margin: 0;
+  font-family: var(--font-montserrat);
+  font-size: clamp(1.25rem, 32px, 2rem);
+  color: var(--color-graphite);
+}
+.popular-tours__card p {
+  margin: 0;
+  font-family: var(--font-montserrat);
+  font-size: clamp(0.9rem, 16px, 1.25rem);
+  color: rgb(var(--color-graphite-rgb) / 60%);
+}
+
+.popular-tours__gallery .popular-tours__feature img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}

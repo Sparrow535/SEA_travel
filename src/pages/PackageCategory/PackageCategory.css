@@ -1,0 +1,36 @@
+.package-category {
+  min-height: 100vh;
+  background: var(--color-beige);
+  color: var(--color-deep-blue);
+  padding: clamp(6rem, 11vw, 8.5rem) clamp(1.2rem, 5vw, 4rem);
+}
+
+.package-category__content {
+  width: min(860px, 100%);
+  margin: 0 auto;
+}
+
+.package-category__content h1 {
+  margin: 0;
+  font-family: var(--font-tensor);
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.package-category__content p {
+  margin: 1.2rem 0 0;
+  max-width: 62ch;
+  font-family: var(--font-open-sans);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgb(var(--color-deep-blue-rgb) / 76%);
+}
+
+.package-category__back {
+  display: inline-block;
+  margin-top: 1.4rem;
+  color: inherit;
+  font-family: var(--font-montserrat);
+  text-decoration: underline;
+  text-underline-offset: 0.23em;
+}

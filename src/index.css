@@ -21,6 +21,14 @@
 }
 
 :root {
+  --color-white-rgb: 242 238 230;
+  --color-white: rgb(var(--color-white-rgb));
+  --color-deep-blue-rgb: 25 36 66;
+  --color-deep-blue: rgb(var(--color-deep-blue-rgb));
+  --color-beige-rgb: 238, 228, 216;
+  --color-beige: rgb(var(--color-beige-rgb));
+  --color-graphite-rgb: 29 29 27;
+  --color-graphite: rgb(var(--color-graphite-rgb));
   --color-gold-rgb: 214 181 133;
   --color-gold: rgb(var(--color-gold-rgb));
   --font-nord: 'NORD', 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
@@ -38,8 +46,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 * {
   box-sizing: border-box;

@@ -1,7 +1,19 @@
 import './Home.css'
+import { Link } from 'react-router-dom'
 import ActionButton from '../../components/ActionButton/ActionButton'
+import PopularTours from '../../components/PopularTours/PopularTours'
 import contentHeader from '../../assets/Home/content1.svg'
 import vector1 from '../../assets/Home/Vector1.svg'
+import package1 from '../../assets/Home/package1.png'
+import package2 from '../../assets/Home/package2.png'
+import vector2 from '../../assets/Home/Vector2.svg'
+import vector3 from '../../assets/Home/Vector3.svg'
+
+const packageCategoryLinks = [
+  { label: 'CULTURAL', path: '/packages/cultural' },
+  { label: 'ADVENTURES', path: '/packages/adventures' },
+  { label: 'FESTIVALS', path: '/packages/festivals' },
+]
 
 function Home() {
   return (
@@ -45,6 +57,50 @@ function Home() {
             </p>
             <ActionButton text="Get More Information" size="md" theme="primary" />
           </div>
+        </div>
+      </div>
+      <PopularTours />
+      <div className="packages_section">
+        <div className="container-1">
+          <img className="packages_section__vector" src={vector2} alt="" aria-hidden="true" />
+          <div className="container-1__left">
+            <div className="eyebrow">03 Packages</div>
+            <div className="text">YOUR CHOICE OF ADVENTURE</div>
+          </div>
+          <div className="container-1__right">
+            <img src={package1} alt="package" />
+          </div>
+        </div>
+        <div className="container-2">
+          <div className="container-2__left">
+            <img src={package2} alt="package" />
+          </div>
+          <div className="container-2__right">
+            <nav className="package-links" aria-label="Package categories">
+              {packageCategoryLinks.map((item) => (
+                <Link key={item.path} to={item.path} className="package-links__item">
+                  <span>{item.label}</span>
+                  <span className="package-links__arrow" aria-hidden="true">
+                    →
+                  </span>
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </div>
+        <img className="packages_section__vector-end" src={vector3} alt="" aria-hidden="true" />
+      </div>
+
+      <div className="content-3">
+        <div className="text-1">
+          Entrust us with the <br />
+          routine and free up time <br />
+          for more important things
+        </div>
+        <div className="text-2">
+          Comfort and care for each client is our <br />
+          main goal. Established connections allow <br />
+          us to solve any task during your stay.
         </div>
       </div>
     </>

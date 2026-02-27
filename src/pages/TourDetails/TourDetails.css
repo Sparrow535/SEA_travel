@@ -1,0 +1,79 @@
+.tour-details {
+  min-height: 100vh;
+  padding: clamp(6rem, 10vw, 8.5rem) clamp(1rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+  background: #192442;
+}
+
+.tour-details__hero {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.tour-details__hero img {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 48vw, 540px);
+  object-fit: cover;
+}
+
+.tour-details__content {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tour-details__eyebrow {
+  margin: 0;
+  font-family: var(--font-montserrat);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.tour-details__content h1 {
+  margin: 0;
+  font-family: var(--font-tensor);
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+}
+
+.tour-details__content p {
+  margin: 0;
+  max-width: 72ch;
+  font-family: var(--font-open-sans);
+  color: rgb(242 238 230 / 78%);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.tour-details__back {
+  margin-top: 1rem;
+  width: fit-content;
+  font-family: var(--font-montserrat);
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.tour-details__not-found {
+  width: min(760px, 100%);
+  margin: auto;
+  text-align: center;
+}
+
+.tour-details__not-found h1,
+.tour-details__not-found p {
+  margin: 0;
+}
+
+.tour-details__not-found a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--color-gold);
+}
