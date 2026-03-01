@@ -1,10 +1,9 @@
 .faq-page {
-  --bg: #f1ede4;
   --body: #5a5347;
 
   position: relative;
   min-height: 100vh;
-  background: var(--bg);
+  background: var(--color-beige);
   padding-top: clamp(11rem, 10vh, 8rem); 
   padding-bottom: 3rem; 
   overflow: hidden;
