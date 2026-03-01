@@ -13,7 +13,8 @@ function Footer() {
   const mapLink = 'https://www.google.com/maps/search/?api=1&query=Paro%2C+Bhutan'
   const whatsappLink = 'https://wa.me/97517123456'
   const emailLink = 'mailto:spiritualescapeadventure@gmail.com'
-  const faqLink = '/about'
+  const aboutLink = '/about'
+  const faqLink = '/faq'
   const facebookLink = 'https://www.facebook.com/'
   const instagramLink = 'https://www.instagram.com/'
 
@@ -86,28 +87,13 @@ function Footer() {
           <div className="list">
             <h2>Connect</h2>
             <div className="links">
-              <a
-                href={facebookLink}
-                className="link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={facebookLink} className="link" target="_blank" rel="noopener noreferrer">
                 Facebook
               </a>
-              <a
-                href={instagramLink}
-                className="link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={instagramLink} className="link" target="_blank" rel="noopener noreferrer">
                 Instagram
               </a>
-              <a
-                href={whatsappLink}
-                className="link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={whatsappLink} className="link" target="_blank" rel="noopener noreferrer">
                 WhatsApp
               </a>
             </div>
