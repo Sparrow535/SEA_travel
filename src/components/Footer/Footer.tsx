@@ -17,7 +17,7 @@ function Footer() {
   const instagramLink = 'https://www.instagram.com/'
 
   return (
-    <div className="footer">
+    <div className="footer" id="contact">
       <img className="footer__vector" src={footerVector} alt="" aria-hidden="true" />
       <div className="first">
         <div className="header">
@@ -62,7 +62,13 @@ function Footer() {
               SPEND YOUR <br />
               REST WITH US
             </p>
-            <ActionButton className="Contact" text="Contact Us" size="lg" theme="secondary" />
+            <ActionButton
+              className="Contact"
+              text="Contact Us"
+              size="lg"
+              theme="secondary"
+              href={emailLink}
+            />
           </div>
         </div>
       </div>

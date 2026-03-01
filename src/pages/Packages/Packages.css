@@ -1,0 +1,254 @@
+.package__hero {
+  height: 100vh;
+  background: url('../../assets/Packages/package_hero.png');
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.package__hero h1 {
+  color: rgb(var(--color-white-rgb));
+  font-size: clamp(2.5rem, 96px, 8rem);
+  font-family: var(--font-tensor);
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgb(var(--color-black-rgb) / 0.7);
+  text-align: center;
+}
+
+.content__1 {
+  position: relative;
+  height: 110vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw 1vw;
+  align-items: start;
+  gap: 5vw;
+  width: 100vw;
+  margin: 5vw 0;
+}
+
+.content__1 .content__1__vector {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 120%;
+  height: auto;
+  z-index: 0;
+}
+
+.content__1 .text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: left;
+  color: rgb(var(--color-white-rgb));
+  font-family: var(--font-tensor);
+  font-size: clamp(1.5rem, 4vw, 6rem);
+  text-transform: uppercase;
+  width: max-content;
+  display: block;
+}
+
+.content__1 .left {
+  display: flex;
+  flex-direction: column;
+  gap: 5vw;
+  width: 30%;
+  justify-content: space-between;
+  z-index: 1;
+  height: inherit;
+}
+.content__1 .left .top {
+  width: 15vw;
+  justify-self: flex-start;
+}
+.content__1 .left .bottom {
+  width: 60%;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+.content__1 .right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 50%;
+  z-index: 1;
+  align-items: flex-end;
+  justify-content: center;
+  height: inherit;
+  padding-right: 2%;
+}
+
+.content__1 .right img {
+  width: 70%;
+  height: auto;
+}
+
+.content__1 .right p {
+  width: 70%;
+  color: rgb(var(--color-gold-rgb) / 50%);
+  font-family: var(--font-open-sans);
+  font-size: clamp(1rem, 20px, 1.5rem);
+}
+
+.packages__section-nav {
+  width: 100%;
+  display: flex;
+  height: 20vh;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 3rem);
+  flex-wrap: wrap;
+  background-color: rgb(var(--color-beige-rgb));
+}
+
+.packages__section-nav-button {
+  min-width: min(100%, 350px);
+  padding: 0.85rem 1.6rem;
+  border: 2px solid rgb(var(--color-deep-blue-rgb));
+  background: transparent;
+  color: var(--color-deep-blue);
+  font-family: var(--font-nord);
+  font-size: clamp(0.9rem, 1vw, 2.05rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.packages__section-nav-button:hover,
+.packages__section-nav-button:focus-visible {
+  border-color: rgb(var(--color-deep-blue-rgb) / 60%);
+  background-color: rgb(var(--color-white-rgb) / 18%);
+  transform: translateY(-1px);
+}
+
+.heritage__paths,
+.summit__soul,
+.sacred__celebrations {
+  scroll-margin-top: 8rem;
+}
+
+.heritage__paths {
+  height: 100vh;
+  background-color: black;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heritage__paths .heritage_text {
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(var(--color-white-rgb));
+  font-family: var(--font-tensor);
+  font-size: clamp(1.5rem, 7vw, 10vw);
+  width: max-content;
+  z-index: 1;
+}
+
+.heritage__paths .heritage_left {
+  height: inherit;
+  width: 40%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 15vh 5vw;
+  font-family: var(--font-open-sans);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  color: rgb(var(--color-white-rgb) / 60%);
+}
+
+.heritage__paths .heritage_right {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2;
+}
+
+.heritage__paths .heritage_right img {
+  width: 80%;
+  height: auto;
+}
+
+.summit__soul {
+  height: 100vh;
+  background: url(../../assets/Packages/summit.png);
+  background-size: cover;
+  background-position: top;
+  margin: 0;
+  position: relative;
+}
+
+.summit__soul .summit_text {
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(var(--color-white-rgb));
+  font-family: var(--font-tensor);
+  font-size: clamp(1.5rem, 7vw, 10vw);
+  width: max-content;
+}
+
+.summit__soul .summit_content {
+  margin: 0;
+  position: absolute;
+  bottom: 5%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: rgb(var(--color-white-rgb) / 60%);
+  font-family: var(--font-open-sans);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  width: 40vw;
+}
+
+.sacred__celebrations {
+  height: 100vh;
+  background: url(../../assets/Packages/celebrations.png);
+  background-size: cover;
+  background-position: top;
+  margin: 0;
+  position: relative;
+}
+
+.sacred__celebrations .celebrations__text {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  transform: translate(50%, -50%);
+  color: rgb(var(--color-white-rgb));
+  font-family: var(--font-tensor);
+  font-size: clamp(1.5rem, 6vw, 10vw);
+  width: min-content;
+}
+
+.sacred__celebrations .celebrations__content {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  color: rgb(var(--color-white-rgb) / 80%);
+  font-family: var(--font-open-sans);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  width: 20vw;
+}

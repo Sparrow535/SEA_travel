@@ -4,6 +4,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Home from './pages/Home/Home'
 import About from './pages/AboutUs//About'
+import Packages from './pages/Packages/Packages'
 import PackageCategory from './pages/PackageCategory/PackageCategory'
 import TourDetails from './pages/TourDetails/TourDetails'
 import Footer from './components/Footer/Footer'
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/packages" element={<Packages />} />
         <Route path="/packages/:category" element={<PackageCategory />} />
         <Route path="/tours/:tourId" element={<TourDetails />} />
         <Route path="*" element={<Navigate to="/" replace />} />

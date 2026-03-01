@@ -25,7 +25,7 @@ function Home() {
               What started as quiet walks and personal retreats slowly grew into a desire to share these
                moments with others. We began curating small, intentional journeys for those seeking more than just a vacation  for those longing for meaning, silence, and a sense of belonging.
             </p>
-            <ActionButton text="Contact Us" size="md" theme="primary" />
+            <ActionButton text="Contact Us" size="md" theme="primary" href="#contact" />
           </div>
         </div>
       </div>

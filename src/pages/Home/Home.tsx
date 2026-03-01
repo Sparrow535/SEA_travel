@@ -55,7 +55,7 @@ function Home() {
               curate transformative journeys that take you away from the noise and into nature where
               you can reconnect with yourself, one mindful step at a time.
             </p>
-            <ActionButton text="Get More Information" size="md" theme="primary" />
+            <ActionButton text="Get More Information" size="md" theme="primary" to="/about" />
           </div>
         </div>
       </div>
