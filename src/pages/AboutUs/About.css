@@ -19,12 +19,7 @@
   z-index: 0;
   pointer-events: none;
 
-  background: linear-gradient(
-    to bottom,
-    rgb(6 16 40 / 16%) 0%,
-    rgb(6 16 40 / 8%) 28%,
-    rgb(6 16 40 / 0%) 52%
-  );
+
 }
 
 .about-hero::after {
@@ -83,7 +78,6 @@
   margin-top: 10%;
   min-height: clamp(520px, 76vh, 780px);
   padding: clamp(1.25rem, 3vw, 2.5rem);
-  background: #192a56;
   overflow: hidden;
 }
 
@@ -120,7 +114,7 @@
 
 .about-content-1__main .about-content-1__para p {
   margin: 0;
-  color: rgb(232 238 252 / 60%);
+  color: rgb(var(--color-gold-rgb) / 50%);
   line-height: 1.6;
   font-family: var(--font-open-sans);
   font-weight: 300;
@@ -135,7 +129,6 @@
 
 .about-purpose {
   position: relative;
-  background: #192a56;
   padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2.5rem) clamp(2.5rem, 6vw, 5rem);
   overflow: hidden;
 }
@@ -184,7 +177,7 @@
   z-index: 1;
   margin: clamp(2rem, 7vw, 6rem) 0 0 auto;
   width: min(520px, 100%);
-  color: rgb(213 181 132 /50%);
+  color: rgb(var(--color-gold-rgb) / 50%);
   line-height: 1.45;
   font-family: var(--font-open-sans);
   font-size: clamp(1rem, 1.2vw, 1.35rem);
@@ -193,7 +186,6 @@
 
 
 .about-gallery {
-  background: #192a56;
   padding: clamp(2rem, 4vw, 4rem) 0;
   display: grid;
   grid-template-columns: minmax(180px, 22vw) minmax(280px, 56vw) minmax(180px, 22vw);
@@ -223,7 +215,6 @@
 
 .about-philosophy {
   position: relative;
-  background: #192a56;
   display: grid;
   grid-template-columns: minmax(260px, 42%) minmax(320px, 1fr);
   align-items: center;
@@ -252,7 +243,7 @@
 }
 
 .about-philosophy__content {
-  color: #e9edf7;
+  color: #f4f3f0;
   max-width: 620px;
 }
 
@@ -267,7 +258,7 @@
 
 .about-philosophy__content p {
   margin: 0.35rem 0;
-  color: rgb(213 181 132 /50%);
+  color: rgb(var(--color-gold-rgb) / 50%);
   font-family: var(--font-open-sans);
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   line-height: 1.45;
@@ -276,7 +267,7 @@
 .about-philosophy__content ul {
   margin: 0.6rem 0 0;
   padding-left: 1.1rem;
-  color: rgb(213 181 132 /50%);
+  color: rgb(var(--color-gold-rgb) / 50%);
   font-family: var(--font-open-sans);
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   line-height: 1.45;
