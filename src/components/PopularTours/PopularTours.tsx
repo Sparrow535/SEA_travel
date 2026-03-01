@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { popularTours } from '../../data/tours'
+import { getPlanImageSrc, getPlanPath, popularPlans } from '../../data/tours'
 import './PopularTours.css'
 
 function PopularTours() {
-  const featuredTour = popularTours[0]
-  const leftTour = popularTours[1] ?? featuredTour
-  const rightTour = popularTours[2] ?? featuredTour
+  const featuredTour = popularPlans[0]
+  const leftTour = popularPlans[1] ?? featuredTour
+  const rightTour = popularPlans[2] ?? featuredTour
 
   if (!featuredTour) return null
 
@@ -18,25 +18,25 @@ function PopularTours() {
 
       <div className="popular-tours__gallery">
         <article className="popular-tours__peek popular-tours__peek--left">
-          <Link className="popular-tours__peek-link" to={`/tours/${leftTour.id}`}>
-            <img src={leftTour.image} alt={leftTour.title} />
+          <Link className="popular-tours__peek-link" to={getPlanPath(leftTour)}>
+            <img src={getPlanImageSrc(leftTour)} alt={leftTour.title} />
           </Link>
         </article>
 
         <article className="popular-tours__feature">
-          <Link className="popular-tours__feature-link" to={`/tours/${featuredTour.id}`}>
-            <img src={featuredTour.image} alt={featuredTour.title} />
+          <Link className="popular-tours__feature-link" to={getPlanPath(featuredTour)}>
+            <img src={getPlanImageSrc(featuredTour)} alt={featuredTour.title} />
 
             <div className="popular-tours__card">
-              <p>{featuredTour.subtitle}</p>
+              <p>DISCOVER MORE</p>
               <h3>{featuredTour.title}</h3>
             </div>
           </Link>
         </article>
 
         <article className="popular-tours__peek popular-tours__peek--right">
-          <Link className="popular-tours__peek-link" to={`/tours/${rightTour.id}`}>
-            <img src={rightTour.image} alt={rightTour.title} />
+          <Link className="popular-tours__peek-link" to={getPlanPath(rightTour)}>
+            <img src={getPlanImageSrc(rightTour)} alt={rightTour.title} />
           </Link>
         </article>
       </div>

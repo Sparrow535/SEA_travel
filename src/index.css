@@ -55,6 +55,7 @@ body {
   margin: 0;
   min-width: 320px;
   background-color: #192442;
+  overflow-x: hidden;
 }
 
 a {
