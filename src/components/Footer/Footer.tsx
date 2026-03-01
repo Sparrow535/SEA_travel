@@ -13,7 +13,6 @@ function Footer() {
   const mapLink = 'https://www.google.com/maps/search/?api=1&query=Paro%2C+Bhutan'
   const whatsappLink = 'https://wa.me/97517123456'
   const emailLink = 'mailto:spiritualescapeadventure@gmail.com'
-  const aboutLink = '/about'
   const faqLink = '/faq'
   const facebookLink = 'https://www.facebook.com/'
   const instagramLink = 'https://www.instagram.com/'
