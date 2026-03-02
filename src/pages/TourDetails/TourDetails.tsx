@@ -1,10 +1,23 @@
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { getPlanBySlug, getPlanImageSrc } from '../../data/tours'
+import { getPlanBySlug } from '../../data/tours'
+import PlanImage from '../../components/PlanImage/PlanImage'
+import introImageLeft from '../../assets/Tours/content1.png'
+import introImageRight from '../../assets/Tours/content2.png'
+import introVector from '../../assets/Tours/Vector.svg'
+import itineraryImage from '../../assets/Tours/iterinary1.png'
+import itineraryVectorTop from '../../assets/Tours/Vector2.svg'
+import itineraryVectorBottom from '../../assets/Tours/Vector3.svg'
 import './TourDetails.css'
 
 function TourDetails() {
   const { tourId = '' } = useParams()
   const tour = getPlanBySlug(tourId)
+  const [selectedDayIndex, setSelectedDayIndex] = useState(0)
+
+  useEffect(() => {
+    setSelectedDayIndex(0)
+  }, [tourId])
 
   if (!tour) {
     return (
@@ -18,19 +31,29 @@ function TourDetails() {
     )
   }
 
+  const selectedDayPlan = tour.dayPlans[selectedDayIndex] ?? tour.dayPlans[0]
+
   return (
     <main className="tour-details">
       <section className="tour-details__hero">
-        <img src={getPlanImageSrc(tour)} alt={tour.title} />
+        <PlanImage className="tour-details__hero-image" plan={tour} alt={tour.title} />
+        <div className="tour-details__hero-overlay" aria-hidden="true" />
+        <div className="tour-details__hero-content">
+          <h1>{tour.title}</h1>
+        </div>
       </section>
 
-      <section className="tour-details__content">
-        <p className="tour-details__eyebrow">
-          {tour.type.toUpperCase()} • {tour.days} DAYS
-        </p>
-        <h1>{tour.title}</h1>
-        <p>{tour.shortDesc}</p>
-        <div className="tour-details__actions">
+      <section className="tour-details__story">
+        <img className="tour-details__story-vector" src={introVector} alt="" aria-hidden="true" />
+        <div className="tour-details__story-media tour-details__story-media--left">
+          <img src={introImageLeft} alt="" aria-hidden="true" />
+        </div>
+        <h2>THE KINGDOM&apos;S SOUL</h2>
+        <div className="tour-details__story-media tour-details__story-media--right">
+          <img src={introImageRight} alt="" aria-hidden="true" />
+        </div>
+        <div className="tour-details__story-copy">
+          <p>{tour.shortDesc}</p>
           <a
             className="tour-details__brochure"
             href={tour.brochurePdf}
@@ -39,23 +62,60 @@ function TourDetails() {
           >
             View Brochure
           </a>
-          <Link className="tour-details__back" to="/">
-            Back To Home
-          </Link>
         </div>
       </section>
 
-      <section className="tour-details__itinerary" aria-labelledby="tour-details-itinerary">
-        <h2 id="tour-details-itinerary">Day By Day</h2>
-        <div className="tour-details__days">
-          {tour.dayPlans.map((dayPlan) => (
-            <article key={`${tour.title}-${dayPlan.day}`} className="tour-details__day">
-              <p className="tour-details__day-label">Day {dayPlan.day}</p>
-              <h3>{dayPlan.title}</h3>
-              <p>{dayPlan.desc}</p>
-            </article>
-          ))}
+      <section className="tour-details__planner" aria-labelledby="tour-details-planner-title">
+        <img
+          className="tour-details__planner-vector tour-details__planner-vector--top"
+          src={itineraryVectorTop}
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          className="tour-details__planner-vector tour-details__planner-vector--bottom"
+          src={itineraryVectorBottom}
+          alt=""
+          aria-hidden="true"
+        />
+
+        <div className="tour-details__planner-list">
+          <h2 id="tour-details-planner-title">PLANNED ITINERARY</h2>
+          <div
+            className="tour-details__planner-days"
+            role="tablist"
+            aria-label="Tour itinerary days"
+          >
+            {tour.dayPlans.map((dayPlan, index) => (
+              <button
+                key={`${tour.title}-${dayPlan.day}`}
+                className={`tour-details__planner-day${
+                  index === selectedDayIndex ? ' tour-details__planner-day--active' : ''
+                }`}
+                type="button"
+                role="tab"
+                aria-selected={index === selectedDayIndex}
+                onClick={() => setSelectedDayIndex(index)}
+              >
+                <span>
+                  Day {dayPlan.day} - {dayPlan.title}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
+
+        <div className="tour-details__planner-preview">
+          <img src={itineraryImage} alt="" aria-hidden="true" />
+          <div className="tour-details__planner-overlay" />
+          <div className="tour-details__planner-copy">
+            <p className="tour-details__planner-day-label">Day {selectedDayPlan.day}</p>
+            <p className="para">{selectedDayPlan.desc}</p>
+          </div>
+        </div>
+      </section>
+      <section className="tour__end" aria-hidden="true">
+        <div className="tour__end-rectangle" />
       </section>
     </main>
   )

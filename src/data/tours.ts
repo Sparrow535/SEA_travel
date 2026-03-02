@@ -1,10 +1,3 @@
-import homeHeroImage from '../assets/Home/Home_hero.png'
-import homePackageImage from '../assets/Home/package1.png'
-import homePackageAltImage from '../assets/Home/package2.png'
-import homeContentImage from '../assets/Home/content2.png'
-import phobjikhaImage from '../assets/Packages/phobjikha.png'
-import punakhaTshechuImage from '../assets/Packages/Punakha_tshechu.png'
-
 // data.ts (SAMPLE) — you can copy this structure and add the rest manually
 
 // 1) Define the 3 plan types at the beginning
@@ -26,15 +19,6 @@ export type TravelPlan = {
   image: string // placeholder image path (you will add later)
   brochurePdf: string
   dayPlans: DayPlan[]
-}
-
-const planImageFallbacks: Record<string, string> = {
-  'thimphu-tshechu': homeHeroImage,
-  'punakha-tshechu': punakhaTshechuImage,
-  'paro-tshechu': homePackageAltImage,
-  'laya-life-festival': homeContentImage,
-  'jambay-lhakhang-drup': homePackageImage,
-  'cultural-odyssey-adventure': phobjikhaImage,
 }
 
 // ✅ SAMPLE FOR 1 PLAN (Festivals)
@@ -928,11 +912,33 @@ export const getPlanSlug = (title: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
 
-export const getPlanBySlug = (slug: string) => plans.find((plan) => getPlanSlug(plan.title) === slug)
+export const getPlanBySlug = (slug: string) =>
+  plans.find((plan) => getPlanSlug(plan.title) === slug)
 
 export const getPlanPath = (plan: TravelPlan) => `/tours/${getPlanSlug(plan.title)}`
 
-export const getPlanImageSrc = (plan: TravelPlan) =>
-  planImageFallbacks[getPlanSlug(plan.title)] ?? plan.image
+export const getPlanImageSources = (plan: TravelPlan) => {
+  const candidates = new Set<string>()
+  const primaryImage = plan.image
+
+  const match = primaryImage.match(/^(.*)\.([^.]+)$/)
+  const supportedExtensions = ['jpg', 'png', 'JPG', 'PNG']
+
+  if (primaryImage) {
+    candidates.add(primaryImage)
+  }
+
+  if (match) {
+    const [, imageBase] = match
+
+    for (const extension of supportedExtensions) {
+      candidates.add(`${imageBase}.${extension}`)
+    }
+  }
+
+  return [...candidates]
+}
+
+export const getPlanImageSrc = (plan: TravelPlan) => getPlanImageSources(plan)[0] ?? ''
 
 export const popularPlans = getPlansByType('festivals').slice(0, 3)

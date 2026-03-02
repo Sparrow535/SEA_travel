@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import './Home.css'
 import { Link } from 'react-router-dom'
 import ActionButton from '../../components/ActionButton/ActionButton'
@@ -16,6 +17,15 @@ const packageCategoryLinks = [
 ]
 
 function Home() {
+  const firstContentRef = useRef<HTMLDivElement | null>(null)
+
+  const handleScrollDown = () => {
+    firstContentRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+
   return (
     <>
       <div className="home-hero">
@@ -26,12 +36,15 @@ function Home() {
             destination.
           </p>
 
-          <div className="home-hero__scroll" aria-label="Scroll down indicator">
+          <button
+            className="home-hero__scroll"
+            type="button"
+            aria-label="Scroll down to the next section"
+            onClick={handleScrollDown}
+          >
             <span>Scroll Down</span>
-            <span className="home-hero__scroll-arrow" aria-hidden="true">
-              ↓
-            </span>
-          </div>
+            <span className="home-hero__scroll-arrow" aria-hidden="true" />
+          </button>
 
           <p className="home-hero__phrase home-hero__phrase--right">
             It's an
@@ -40,7 +53,7 @@ function Home() {
           </p>
         </div>
       </div>
-      <div className="home-content-1">
+      <div ref={firstContentRef} className="home-content-1">
         <img className="home-content-1__vector" src={vector1} alt="" aria-hidden="true" />
         <div className="small_header">
           <h5>01 WHY US</h5>

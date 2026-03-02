@@ -12,7 +12,7 @@ const menuLinks = [
     to: '/packages',
     match: (pathname: string) => pathname.startsWith('/packages'),
   },
-  { label: 'FAQ', to: '/faqs', match: (pathname: string) => pathname === '/faqs' },
+  { label: 'FAQ', to: '/faq', match: (pathname: string) => pathname === '/faq' },
 ]
 
 function Navbar() {

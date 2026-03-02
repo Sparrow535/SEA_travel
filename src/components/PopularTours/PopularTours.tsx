@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { getPlanImageSrc, getPlanPath, popularPlans } from '../../data/tours'
+import { getPlanPath, popularPlans } from '../../data/tours'
+import PlanImage from '../PlanImage/PlanImage'
 import './PopularTours.css'
 
 function PopularTours() {
@@ -19,13 +20,13 @@ function PopularTours() {
       <div className="popular-tours__gallery">
         <article className="popular-tours__peek popular-tours__peek--left">
           <Link className="popular-tours__peek-link" to={getPlanPath(leftTour)}>
-            <img src={getPlanImageSrc(leftTour)} alt={leftTour.title} />
+            <PlanImage plan={leftTour} alt={leftTour.title} />
           </Link>
         </article>
 
         <article className="popular-tours__feature">
           <Link className="popular-tours__feature-link" to={getPlanPath(featuredTour)}>
-            <img src={getPlanImageSrc(featuredTour)} alt={featuredTour.title} />
+            <PlanImage plan={featuredTour} alt={featuredTour.title} />
 
             <div className="popular-tours__card">
               <p>DISCOVER MORE</p>
@@ -36,7 +37,7 @@ function PopularTours() {
 
         <article className="popular-tours__peek popular-tours__peek--right">
           <Link className="popular-tours__peek-link" to={getPlanPath(rightTour)}>
-            <img src={getPlanImageSrc(rightTour)} alt={rightTour.title} />
+            <PlanImage plan={rightTour} alt={rightTour.title} />
           </Link>
         </article>
       </div>

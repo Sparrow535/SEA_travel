@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { getPlanPath, type TravelPlan } from '../../data/tours'
+import PlanImage from '../PlanImage/PlanImage'
 import './PlanCardsSection.css'
 
 type PlanCardsSectionProps = {
@@ -20,7 +21,13 @@ function PlanCardsSection({ plans }: PlanCardsSectionProps) {
             aria-label={`Discover more about ${plan.title}`}
           >
             <article className="plan-cards-section__card">
-              <img src={plan.image} alt={plan.title} />
+              <PlanImage
+                plan={plan}
+                alt={plan.title}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+              />
 
               <span className="plan-cards-section__days">{plan.days} DAYS</span>
 

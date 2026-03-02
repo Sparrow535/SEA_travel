@@ -67,7 +67,7 @@ function Footer() {
               text="Contact Us"
               size="lg"
               theme="secondary"
-              href={emailLink}
+              to="/contact"
             />
           </div>
         </div>
