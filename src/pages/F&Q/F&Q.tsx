@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './F&Q.css'
+import Vect from '../../assets/F&Q/Vector 13.svg'
 
 const faqItems = [
   {
@@ -30,6 +31,7 @@ export default function FQ() {
 
   return (
     <section className="faq-page">
+          <img className="faq-page__vector" src={Vect} alt="" aria-hidden="true" />
       <h1 className="faq-page__title">FAQ</h1>
 
       <div className="faq-list">

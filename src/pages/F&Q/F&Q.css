@@ -9,15 +9,19 @@
   overflow: hidden;
 }
 
-.faq-page::before,
-.faq-page::after {
-  content: '';
+.faq-page__vector {
   position: absolute;
-  border: 1px solid rgb(120 130 155 / 35%);
-  border-radius: 50%;
+  top: -18px; 
+  left: 50%;
+  width: min(120vw, 1200px);
+  aspect-ratio: 1200 / 791.27;
+  height: auto;
+  transform: translateX(-50%);
   pointer-events: none;
+  z-index: 0;
+  opacity: 0.88;
 }
-
+ 
 .faq-page::before {
   width: 900px;
   height: 420px;

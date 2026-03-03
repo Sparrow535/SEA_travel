@@ -5,6 +5,10 @@ import Abt from '../../assets/About/abt1.png'
 import Abt2 from '../../assets/About/Abt2.png'
 import Abt3 from '../../assets/About/abt3.png'
 import Phill from '../../assets/About/Phill.png'
+import vects1 from '../../assets/About/Vector 4.svg'
+import vects2 from '../../assets/About/Vector 5.svg'
+import vects3 from '../../assets/About/Vector 6.png'
+import vects4 from '../../assets/About/Vector 7.svg'
 
 
 
@@ -18,6 +22,7 @@ function Home() {
       </div>
 
       <div className="about-content-1">
+        <img className="about-content-2__vector" src={vects1} alt="" aria-hidden="true" />
         <img className="about-content-1__vector" src={vect1} alt="" aria-hidden="true" />
         <div className="about-content-1__main">
           <div className="about-content-1__para">
@@ -30,6 +35,7 @@ function Home() {
         </div>
       </div>
       <div className="about-purpose">
+         <img className="about-purpose__vector" src={vects2} alt="" aria-hidden="true" />
         <p className="about-purpose__headline">
            To create space for stillness. To guide travelers toward inner peace through meaningful 
            connections with nature. To remind people that the most important destination is often within.
@@ -40,6 +46,7 @@ function Home() {
             simplicity, and that nature is the most sacred space to reconnect with who you truly are.
         </p>
     </div>
+    <img className="about-gallery__vector" src={vects3} alt="" aria-hidden="true" />
 
       <div className="about-gallery">
         <div className="about-gallery__side about-gallery__side--left">
@@ -60,6 +67,7 @@ function Home() {
   </div>
 
   <div className="about-philosophy__content">
+    <img className="philosophy__vector" src={vects4} alt="" aria-hidden="true" />
     <h2>OUR PHILOSOPHY</h2>
     <p>We believe travel should transform, not just transport.</p>
     <p>Every journey with us is designed with real intention:</p>
