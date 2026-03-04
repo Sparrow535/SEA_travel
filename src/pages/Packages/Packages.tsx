@@ -6,11 +6,12 @@ import Content1 from '../../assets/Packages/content1.png'
 import Content2 from '../../assets/Packages/content2.png'
 import Content3 from '../../assets/Packages/content3.png'
 import HeritageImg from '../../assets/Packages/heritage.png'
+import { scrollToElementById } from '../../utils/scroll'
 
 const packageSectionLinks = [
-  { label: 'HERITAGE PATHS', selector: '.heritage__paths' },
-  { label: 'SUMMIT & SOUL', selector: '.summit__soul' },
-  { label: 'SACRED CELEBRATIONS', selector: '.sacred__celebrations' },
+  { label: 'HERITAGE PATHS', targetId: 'heritage-paths' },
+  { label: 'SUMMIT & SOUL', targetId: 'summit-soul' },
+  { label: 'SACRED CELEBRATIONS', targetId: 'sacred-celebrations' },
 ]
 
 function Packages() {
@@ -18,11 +19,8 @@ function Packages() {
   const trekPlans = getPlansByType('trek')
   const festivalPlans = getPlansByType('festivals')
 
-  const handleScrollToSection = (selector: string) => {
-    document.querySelector(selector)?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    })
+  const handleScrollToSection = (targetId: string) => {
+    scrollToElementById(targetId, 'smooth')
   }
 
   return (
@@ -61,17 +59,17 @@ function Packages() {
       <div className="packages__section-nav" aria-label="Package section navigation">
         {packageSectionLinks.map((sectionLink) => (
           <button
-            key={sectionLink.selector}
+            key={sectionLink.targetId}
             className="packages__section-nav-button"
             type="button"
-            onClick={() => handleScrollToSection(sectionLink.selector)}
+            onClick={() => handleScrollToSection(sectionLink.targetId)}
           >
             {sectionLink.label}
           </button>
         ))}
       </div>
 
-      <div className="heritage__paths">
+      <div className="heritage__paths" id="heritage-paths">
         <h2 className="heritage_text">HERITAGE PATHS</h2>
         <div className="heritage_left">
           Step beyond the guidebooks and into the rhythm of daily life in the Himalayas. Visit
@@ -89,7 +87,7 @@ function Packages() {
         <PlanCardsSection plans={culturalPlans} />
       </div>
 
-      <div className="summit__soul">
+      <div className="summit__soul" id="summit-soul">
         <h2 className="summit_text">SUMMIT & SOULS</h2>
         <p className="summit_content">
           Bhutan's mountains are more than a backdrop; they are a presence. Trek through pristine
@@ -103,7 +101,7 @@ function Packages() {
         <PlanCardsSection plans={trekPlans} />
       </div>
 
-      <div className="sacred__celebrations">
+      <div className="sacred__celebrations" id="sacred-celebrations">
         <h2 className="celebrations__text">SACRED CELEBRATIONS</h2>
         <p className="celebrations__content">
           Bhutan's festivals, or Tshechus, are explosions of color, music, and devotion but they are

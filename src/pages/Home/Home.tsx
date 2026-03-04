@@ -11,9 +11,9 @@ import vector2 from '../../assets/Home/Vector2.svg'
 import vector3 from '../../assets/Home/Vector3.svg'
 
 const packageCategoryLinks = [
-  { label: 'CULTURAL', path: '/packages/cultural' },
-  { label: 'ADVENTURES', path: '/packages/adventures' },
-  { label: 'FESTIVALS', path: '/packages/festivals' },
+  { label: 'HERITAGE', path: '/packages#heritage-paths' },
+  { label: 'SUMMIT', path: '/packages#summit-soul' },
+  { label: 'CELEBRATIONS', path: '/packages#sacred-celebrations' },
 ]
 
 function Home() {

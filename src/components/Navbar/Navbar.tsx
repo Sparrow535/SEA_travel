@@ -13,6 +13,7 @@ const menuLinks = [
     match: (pathname: string) => pathname.startsWith('/packages'),
   },
   { label: 'FAQ', to: '/faq', match: (pathname: string) => pathname === '/faq' },
+  { label: 'CONTACT US', to: '/contact', match: (pathname: string) => pathname === '/contact' },
 ]
 
 function Navbar() {
@@ -85,9 +86,9 @@ function Navbar() {
           <img className="navbar__brand-logo" src="/logo.png" alt="Spiritual Escape Adventure" />
         </Link>
 
-        <a className="navbar__contact" href="#contact" onClick={() => setIsOpen(false)}>
+        <Link className="navbar__contact" to="/contact" onClick={() => setIsOpen(false)}>
           Contact Us
-        </a>
+        </Link>
       </div>
 
       <div
@@ -112,10 +113,6 @@ function Navbar() {
                   {link.label}
                 </Link>
               ))}
-
-              <a className="navbar__overlay-link" href="#contact" onClick={() => setIsOpen(false)}>
-                CONTACT US
-              </a>
             </div>
 
             <div className="navbar__overlay-meta">

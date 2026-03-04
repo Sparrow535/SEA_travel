@@ -1,0 +1,171 @@
+.contact-page {
+  background: var(--color-beige);
+}
+
+.contact__hero {
+  height: 100vh;
+  background: url('../../assets/Contact/contact_hero.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact__hero h1 {
+  font-family: var(--font-tensor);
+  font-size: var(--fs-display-lg);
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-weight: 300;
+}
+
+.contact__request {
+  background: var(--color-beige);
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 4rem) clamp(4rem, 8vw, 6rem);
+}
+
+.contact__request-inner {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.contact__request h2 {
+  margin: 0 0 clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--color-deep-blue);
+  font-family: var(--font-tensor);
+  font-size: var(--fs-section-title);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.contact__form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact__field--full {
+  grid-column: 1 / -1;
+}
+
+.contact__field span {
+  color: rgb(var(--color-deep-blue-rgb) / 62%);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-body-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.contact__field input,
+.contact__field textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgb(var(--color-deep-blue-rgb) / 26%);
+  background: transparent;
+  color: rgb(var(--color-deep-blue-rgb) / 70%);
+  font-family: var(--font-open-sans);
+  font-size: var(--fs-body);
+  font-weight: 300;
+  line-height: 1.2;
+  padding: 0 0 0.35rem;
+  outline: none;
+  resize: vertical;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.contact__field textarea {
+  min-height: 1rem;
+}
+
+.contact__field input::placeholder,
+.contact__field textarea::placeholder {
+  color: rgb(var(--color-deep-blue-rgb) / 40%);
+}
+
+.contact__field input:focus,
+.contact__field textarea:focus {
+  border-color: rgb(var(--color-deep-blue-rgb) / 52%);
+  color: var(--color-deep-blue);
+}
+
+.contact__field--error input,
+.contact__field--error textarea,
+.contact__field--error input:focus,
+.contact__field--error textarea:focus {
+  border-bottom-color: rgb(176 54 54 / 72%);
+  color: var(--color-deep-blue);
+}
+
+.contact__error {
+  margin: -0.1rem 0 0;
+  color: rgb(176 54 54 / 92%);
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-caption);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.contact__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+}
+
+.contact__submit {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--color-deep-blue);
+  font-family: var(--font-montserrat);
+  font-size: clamp(1.2rem, 1.3vw, 1.45rem);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+.contact__submit:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.contact__status {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.35rem;
+  text-align: center;
+  color: rgb(var(--color-deep-blue-rgb) / 80%);
+  font-family: var(--font-open-sans);
+  font-size: var(--fs-body-sm);
+  line-height: 1.5;
+}
+
+.contact__status--success {
+  background: rgb(36 90 58 / 10%);
+  color: rgb(36 90 58 / 92%);
+}
+
+.contact__status--error {
+  background: rgb(176 54 54 / 10%);
+  color: rgb(138 33 33 / 96%);
+}
+
+@media (max-width: 1024px) {
+  .contact__hero {
+    height: 50vh;
+  }
+}
+@media (max-width: 600px) {
+}

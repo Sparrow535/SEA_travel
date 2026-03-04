@@ -42,15 +42,15 @@
 }
 
 .action-button--sm {
-  font-size: 1rem;
+  font-size: var(--fs-button-sm);
 }
 
 .action-button--md {
-  font-size: 1.24rem;
+  font-size: var(--fs-button-md);
 }
 
 .action-button--lg {
-  font-size: 1.5rem;
+  font-size: var(--fs-button-lg);
 }
 
 .action-button--primary {
@@ -62,3 +62,4 @@
   --button-bg: #d7bb77;
   --button-text: #0f1e46;
 }
+

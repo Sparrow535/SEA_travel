@@ -1,14 +1,70 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getPlanPath, popularPlans } from '../../data/tours'
+import { getHourlyPopularPlans, getPlanPath, type TravelPlan } from '../../data/tours'
 import PlanImage from '../PlanImage/PlanImage'
 import './PopularTours.css'
 
-function PopularTours() {
-  const featuredTour = popularPlans[0]
-  const leftTour = popularPlans[1] ?? featuredTour
-  const rightTour = popularPlans[2] ?? featuredTour
+const AUTO_SLIDE_INTERVAL_MS = 5000
 
-  if (!featuredTour) return null
+const getPosition = (index: number, activeIndex: number, total: number) => {
+  if (index === activeIndex) return 'center'
+  if (index === (activeIndex - 1 + total) % total) return 'left'
+  return 'right'
+}
+
+function PopularTours() {
+  const [featuredPlans, setFeaturedPlans] = useState<TravelPlan[]>(() => getHourlyPopularPlans())
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof window.setTimeout>
+
+    const scheduleNextRefresh = () => {
+      const now = new Date()
+      const nextHour = new Date(now)
+      nextHour.setMinutes(60, 0, 0)
+
+      timeoutId = window.setTimeout(() => {
+        setFeaturedPlans(getHourlyPopularPlans(new Date()))
+        scheduleNextRefresh()
+      }, nextHour.getTime() - now.getTime())
+    }
+
+    scheduleNextRefresh()
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [])
+
+  useEffect(() => {
+    setActiveIndex(0)
+  }, [featuredPlans])
+
+  useEffect(() => {
+    if (featuredPlans.length <= 1 || isPaused) return
+
+    const intervalId = window.setInterval(() => {
+      setActiveIndex((currentIndex) => (currentIndex + 1) % featuredPlans.length)
+    }, AUTO_SLIDE_INTERVAL_MS)
+
+    return () => {
+      window.clearInterval(intervalId)
+    }
+  }, [featuredPlans.length, isPaused])
+
+  const goToPrevious = () => {
+    setActiveIndex(
+      (currentIndex) => (currentIndex - 1 + featuredPlans.length) % featuredPlans.length
+    )
+  }
+
+  const goToNext = () => {
+    setActiveIndex((currentIndex) => (currentIndex + 1) % featuredPlans.length)
+  }
+
+  if (featuredPlans.length === 0) return null
 
   return (
     <section className="popular-tours" aria-labelledby="popular-tours-heading">
@@ -17,30 +73,64 @@ function PopularTours() {
         POPULAR TOURS
       </h2>
 
-      <div className="popular-tours__gallery">
-        <article className="popular-tours__peek popular-tours__peek--left">
-          <Link className="popular-tours__peek-link" to={getPlanPath(leftTour)}>
-            <PlanImage plan={leftTour} alt={leftTour.title} />
-          </Link>
-        </article>
+      <div
+        className="popular-tours__gallery"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onFocusCapture={() => setIsPaused(true)}
+        onBlurCapture={() => setIsPaused(false)}
+      >
+        {featuredPlans.map((plan, index) => {
+          const position = getPosition(index, activeIndex, featuredPlans.length)
+          const isCenter = position === 'center'
 
-        <article className="popular-tours__feature">
-          <Link className="popular-tours__feature-link" to={getPlanPath(featuredTour)}>
-            <PlanImage plan={featuredTour} alt={featuredTour.title} />
+          return (
+            <article
+              key={`${plan.type}-${plan.title}`}
+              className={`popular-tours__item popular-tours__item--${position}`}
+            >
+              <Link
+                className={`popular-tours__item-link ${
+                  isCenter ? 'popular-tours__item-link--feature' : 'popular-tours__item-link--peek'
+                }`}
+                to={getPlanPath(plan)}
+              >
+                <PlanImage plan={plan} alt={plan.title} />
 
-            <div className="popular-tours__card">
-              <p>DISCOVER MORE</p>
-              <h3>{featuredTour.title}</h3>
-            </div>
-          </Link>
-        </article>
+                {!isCenter && <span className="popular-tours__peek-mask" aria-hidden="true" />}
 
-        <article className="popular-tours__peek popular-tours__peek--right">
-          <Link className="popular-tours__peek-link" to={getPlanPath(rightTour)}>
-            <PlanImage plan={rightTour} alt={rightTour.title} />
-          </Link>
-        </article>
+                {isCenter && (
+                  <div className="popular-tours__card">
+                    <p>DISCOVER MORE</p>
+                    <h3>{plan.title}</h3>
+                  </div>
+                )}
+              </Link>
+            </article>
+          )
+        })}
       </div>
+
+      {featuredPlans.length > 1 && (
+        <div className="popular-tours__controls" aria-label="Popular tours slider controls">
+          <button
+            type="button"
+            className="popular-tours__control"
+            onClick={goToPrevious}
+            aria-label="Show previous popular tour"
+          >
+            <span aria-hidden="true">←</span>
+          </button>
+          <button
+            type="button"
+            className="popular-tours__control"
+            onClick={goToNext}
+            aria-label="Show next popular tour"
+          >
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      )}
     </section>
   )
 }

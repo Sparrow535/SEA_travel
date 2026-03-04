@@ -65,7 +65,7 @@ function Footer() {
             <ActionButton
               className="Contact"
               text="Contact Us"
-              size="lg"
+              size="md"
               theme="secondary"
               to="/contact"
             />
@@ -135,6 +135,13 @@ function Footer() {
           <div className="left">
             <img src={copyrightIcon} alt="Copyright" />
             <span>All Rights reserved 2026. Spiritual Escape Adventure</span>
+          </div>
+          <div className="left__phone">
+            <span className="phone_first">
+              <img src={copyrightIcon} alt="Copyright" />
+              <span>All Rights reserved 2026.</span>
+            </span>
+            <span className="phone_second">Spiritual Escape Adventure</span>
           </div>
           <div className="right">
             <span>Developed by</span>

@@ -36,6 +36,25 @@
   --font-montserrat: 'Montserrat', var(--font-nord);
   --font-open-sans: 'Open Sans', var(--font-nord);
 
+  --fs-display-xl: clamp(4rem, 8vw, 10rem);
+  --fs-display-lg: clamp(2.6rem, 7vw, 6rem);
+  --fs-display-md: clamp(2rem, 5.4vw, 5rem);
+  --fs-display-sm: clamp(1.8rem, 4.5vw, 4rem);
+  --fs-section-title: clamp(1.7rem, 3.6vw, 3rem);
+  --fs-section-subtitle: clamp(1.3rem, 2.4vw, 2.1rem);
+  --fs-card-title: clamp(1.2rem, 1.8vw, 2rem);
+  --fs-nav: clamp(1rem, 1.05vw, 1.375rem);
+  --fs-button: clamp(1rem, 1.15vw, 1.3rem);
+  --fs-button-sm: clamp(0.95rem, 1vw, 1rem);
+  --fs-button-md: clamp(1.08rem, 1.2vw, 1.24rem);
+  --fs-button-lg: clamp(1.2rem, 1.45vw, 1.5rem);
+  --fs-eyebrow: clamp(0.78rem, 1.2vw, 1rem);
+  --fs-body-lg: clamp(1rem, 1.5vw, 1.5rem);
+  --fs-body: clamp(0.95rem, 1.15vw, 1.2rem);
+  --fs-body-sm: clamp(0.9rem, 1vw, 1.05rem);
+  --fs-label: clamp(0.82rem, 0.92vw, 0.95rem);
+  --fs-caption: clamp(0.75rem, 0.8vw, 0.88rem);
+
   font-family: var(--font-nord);
   line-height: 1.5;
   font-weight: 400;
@@ -60,4 +79,27 @@ body {
 
 a {
   color: inherit;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --fs-display-xl: clamp(2.75rem, 11vw, 4.5rem);
+    --fs-display-lg: clamp(2.2rem, 9vw, 3.8rem);
+    --fs-display-md: clamp(1.9rem, 7vw, 3rem);
+    --fs-display-sm: clamp(1.6rem, 6vw, 2.5rem);
+    --fs-section-title: clamp(1.35rem, 5.6vw, 2rem);
+    --fs-section-subtitle: clamp(1.15rem, 4.6vw, 1.55rem);
+    --fs-card-title: clamp(1.05rem, 4.6vw, 1.45rem);
+    --fs-nav: clamp(0.9rem, 3.6vw, 1.05rem);
+    --fs-button: clamp(0.95rem, 3.8vw, 1.1rem);
+    --fs-button-sm: clamp(0.88rem, 3vw, 0.95rem);
+    --fs-button-md: clamp(0.95rem, 3.4vw, 1.05rem);
+    --fs-button-lg: clamp(1.05rem, 3.8vw, 1.2rem);
+    --fs-eyebrow: clamp(0.72rem, 3vw, 0.1rem);
+    --fs-body-lg: clamp(0.95rem, 4vw, 1.1rem);
+    --fs-body: clamp(0.9rem, 3.8vw, 1rem);
+    --fs-body-sm: clamp(0.85rem, 3.4vw, 0.95rem);
+    --fs-label: clamp(0.78rem, 3vw, 0.88rem);
+    --fs-caption: clamp(0.72rem, 2.8vw, 0.82rem);
+  }
 }

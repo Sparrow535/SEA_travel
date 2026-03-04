@@ -941,4 +941,39 @@ export const getPlanImageSources = (plan: TravelPlan) => {
 
 export const getPlanImageSrc = (plan: TravelPlan) => getPlanImageSources(plan)[0] ?? ''
 
-export const popularPlans = getPlansByType('festivals').slice(0, 3)
+const getHourBucket = (date: Date) =>
+  `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}-${date.getHours()}`
+
+const getSeedFromString = (value: string) => {
+  let seed = 0
+
+  for (let index = 0; index < value.length; index += 1) {
+    seed = (seed * 31 + value.charCodeAt(index)) >>> 0
+  }
+
+  return seed
+}
+
+const getSeededRandom = (seed: number) => {
+  let currentSeed = seed || 1
+
+  return () => {
+    currentSeed = (currentSeed * 1664525 + 1013904223) >>> 0
+    return currentSeed / 4294967296
+  }
+}
+
+export const getHourlyPopularPlans = (date = new Date(), count = 3) => {
+  const plansPool = [...plans]
+  const random = getSeededRandom(getSeedFromString(getHourBucket(date)))
+
+  for (let currentIndex = plansPool.length - 1; currentIndex > 0; currentIndex -= 1) {
+    const randomIndex = Math.floor(random() * (currentIndex + 1))
+    ;[plansPool[currentIndex], plansPool[randomIndex]] = [
+      plansPool[randomIndex],
+      plansPool[currentIndex],
+    ]
+  }
+
+  return plansPool.slice(0, Math.max(count, 0))
+}

@@ -81,26 +81,39 @@ function TourDetails() {
 
         <div className="tour-details__planner-list">
           <h2 id="tour-details-planner-title">PLANNED ITINERARY</h2>
-          <div
-            className="tour-details__planner-days"
-            role="tablist"
-            aria-label="Tour itinerary days"
-          >
+          <div className="tour-details__planner-days" aria-label="Tour itinerary days">
             {tour.dayPlans.map((dayPlan, index) => (
-              <button
+              <div
                 key={`${tour.title}-${dayPlan.day}`}
-                className={`tour-details__planner-day${
-                  index === selectedDayIndex ? ' tour-details__planner-day--active' : ''
+                className={`tour-details__planner-item${
+                  index === selectedDayIndex ? ' tour-details__planner-item--active' : ''
                 }`}
-                type="button"
-                role="tab"
-                aria-selected={index === selectedDayIndex}
-                onClick={() => setSelectedDayIndex(index)}
               >
-                <span>
-                  Day {dayPlan.day} - {dayPlan.title}
-                </span>
-              </button>
+                <button
+                  className={`tour-details__planner-day${
+                    index === selectedDayIndex ? ' tour-details__planner-day--active' : ''
+                  }`}
+                  type="button"
+                  aria-expanded={index === selectedDayIndex}
+                  aria-controls={`tour-day-panel-${dayPlan.day}`}
+                  onClick={() => setSelectedDayIndex(index)}
+                >
+                  <span>
+                    Day {dayPlan.day} - {dayPlan.title}
+                  </span>
+                  <span className="tour-details__planner-arrow" aria-hidden="true">
+                    &rarr;
+                  </span>
+                </button>
+
+                <div
+                  id={`tour-day-panel-${dayPlan.day}`}
+                  className="tour-details__planner-panel"
+                  aria-hidden={index !== selectedDayIndex}
+                >
+                  <p className="tour-details__planner-panel-copy">{dayPlan.desc}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
