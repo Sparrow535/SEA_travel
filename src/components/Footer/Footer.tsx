@@ -44,7 +44,7 @@ function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"
               >
-                <p>+975 - 17 12 34 56</p>
+                <p>+975 - 17 50 86 68</p>
               </a>
             </div>
             <a
@@ -122,11 +122,11 @@ function Footer() {
               </a>
               <a href={whatsappLink} className="link" target="_blank" rel="noopener noreferrer">
                 <img src={callIcon} alt="Call" />
-                <span>+975 - 17 12 34 56</span>
+                <span>+975 - 17 50 86 68</span>
               </a>
               <a href={emailLink} className="link">
                 <img src={mailIcon} alt="Mail" />
-                <span>spiritualescapeadventure@gmail.com</span>
+                <span>Sommdorji08@gmail.com</span>
               </a>
             </div>
           </div>

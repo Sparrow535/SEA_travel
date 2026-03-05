@@ -119,7 +119,7 @@ function Navbar() {
               <div className="navbar__overlay-meta-row">
                 <span>Call us:</span>
                 <a href="https://wa.me/97517123456" target="_blank" rel="noopener noreferrer">
-                  +975 17 12 34 56
+                  +975 17 50 86 68
                 </a>
               </div>
 
