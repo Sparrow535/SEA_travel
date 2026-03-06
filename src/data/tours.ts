@@ -17,12 +17,23 @@ export type TravelPlan = {
   shortDesc: string
   days: number
   image: string // placeholder image path (you will add later)
+  galleryImages: string[]
   brochurePdf: string
   dayPlans: DayPlan[]
 }
 
+const createGalleryImagePaths = (coverImagePath: string) => {
+  const directoryPath = coverImagePath.replace(/\/cover\.[^.]+$/i, '')
+
+  if (directoryPath === coverImagePath) {
+    return []
+  }
+
+  return Array.from({ length: 4 }, (_, index) => `${directoryPath}/gallery/${index + 1}.jpg`)
+}
+
 // ✅ SAMPLE FOR 1 PLAN (Festivals)
-export const plans: TravelPlan[] = [
+const rawPlans: Omit<TravelPlan, 'galleryImages'>[] = [
   {
     type: 'festivals',
     title: 'Thimphu Tshechu',
@@ -903,6 +914,11 @@ export const plans: TravelPlan[] = [
   },
 ]
 
+export const plans: TravelPlan[] = rawPlans.map((plan) => ({
+  ...plan,
+  galleryImages: createGalleryImagePaths(plan.image),
+}))
+
 // Optional helpers (useful for routing/pages)
 export const getPlansByType = (type: PlanType) => plans.filter((p) => p.type === type)
 
@@ -917,9 +933,9 @@ export const getPlanBySlug = (slug: string) =>
 
 export const getPlanPath = (plan: TravelPlan) => `/tours/${getPlanSlug(plan.title)}`
 
-export const getPlanImageSources = (plan: TravelPlan) => {
+export const getImageSources = (imagePath: string) => {
   const candidates = new Set<string>()
-  const primaryImage = plan.image
+  const primaryImage = imagePath
 
   const match = primaryImage.match(/^(.*)\.([^.]+)$/)
   const supportedExtensions = ['jpg', 'png', 'JPG', 'PNG']
@@ -938,6 +954,11 @@ export const getPlanImageSources = (plan: TravelPlan) => {
 
   return [...candidates]
 }
+
+export const getPlanImageSources = (plan: TravelPlan) => getImageSources(plan.image)
+
+export const getPlanGalleryImageSources = (plan: TravelPlan) =>
+  plan.galleryImages.map((imagePath) => getImageSources(imagePath))
 
 export const getPlanImageSrc = (plan: TravelPlan) => getPlanImageSources(plan)[0] ?? ''
 

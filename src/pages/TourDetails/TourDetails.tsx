@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { getPlanBySlug } from '../../data/tours'
+import { getPlanBySlug, getPlanGalleryImageSources, getPlanImageSources } from '../../data/tours'
 import PlanImage from '../../components/PlanImage/PlanImage'
+import ResolvedImage from '../../components/ResolvedImage/ResolvedImage'
 import introImageLeft from '../../assets/Tours/content1.png'
 import introImageRight from '../../assets/Tours/content2.png'
 import introVector from '../../assets/Tours/Vector.svg'
@@ -32,6 +33,8 @@ function TourDetails() {
   }
 
   const selectedDayPlan = tour.dayPlans[selectedDayIndex] ?? tour.dayPlans[0]
+  const galleryImageSources = getPlanGalleryImageSources(tour)
+  const coverImageSources = getPlanImageSources(tour)
 
   return (
     <main className="tour-details">
@@ -127,6 +130,30 @@ function TourDetails() {
           </div>
         </div>
       </section>
+
+      <section className="tour-details__gallery" aria-labelledby="tour-details-gallery-title">
+        <div className="tour-details__gallery-header">
+          <p className="tour-details__gallery-eyebrow">Gallery</p>
+          <h2 id="tour-details-gallery-title">Moments Along The Journey</h2>
+        </div>
+
+        <div className="tour-details__gallery-grid">
+          {galleryImageSources.map((imageSources, index) => (
+            <figure className="tour-details__gallery-item" key={`${tour.title}-gallery-${index + 1}`}>
+              <ResolvedImage
+                className="tour-details__gallery-image"
+                sources={imageSources}
+                fallbackSources={coverImageSources}
+                alt={`${tour.title} gallery image ${index + 1}`}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+              />
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="tour__end" aria-hidden="true">
         <div className="tour__end-rectangle" />
       </section>
