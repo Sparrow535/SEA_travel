@@ -80,7 +80,7 @@ function PlanCardsSection({ plans }: PlanCardsSectionProps) {
       onWheel={handleWheel}
     >
       <div className="plan-cards-section__track">
-        {plans.map((plan, index) => (
+        {plans.map((plan) => (
           <Link
             key={`${plan.type}-${plan.title}`}
             className="plan-cards-section__card-link"
@@ -91,8 +91,9 @@ function PlanCardsSection({ plans }: PlanCardsSectionProps) {
               <PlanImage
                 plan={plan}
                 alt={plan.title}
-                loading={index < 4 ? 'eager' : 'lazy'}
-                decoding="sync"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
                 draggable={false}
               />
 

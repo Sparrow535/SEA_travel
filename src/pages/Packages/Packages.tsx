@@ -33,17 +33,29 @@ function Packages() {
         </h1>
       </div>
       <div className="content__1">
-        <img src={Vector} alt="Vector illustration" className="content__1__vector" />
+        <img
+          src={Vector}
+          alt="Vector illustration"
+          className="content__1__vector"
+          loading="lazy"
+          decoding="async"
+        />
         <h2 className="text">
           Let us tailor your next luxury holiday <br />
           destinations
         </h2>
         <div className="left">
-          <img src={Content1} alt="Content 1" className="top" />
-          <img src={Content3} alt="Content 2" className="bottom" />
+          <img src={Content1} alt="Content 1" className="top" loading="lazy" decoding="async" />
+          <img
+            src={Content3}
+            alt="Content 2"
+            className="bottom"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div className="right">
-          <img src={Content2} alt="Content 3" />
+          <img src={Content2} alt="Content 3" loading="lazy" decoding="async" />
           <p>
             In Bhutan, Gross National Happiness is more than a philosophy it's a way of life.
             Ancient traditions breathe alongside pristine nature, inviting you to trek unspoiled
@@ -80,7 +92,7 @@ function Packages() {
           much alive.
         </div>
         <div className="heritage_right">
-          <img src={HeritageImg} alt="Heritage" />
+          <img src={HeritageImg} alt="Heritage" loading="lazy" decoding="async" />
         </div>
       </div>
       <div className="packages__plan-cards-wrap">

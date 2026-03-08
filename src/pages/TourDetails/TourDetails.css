@@ -46,6 +46,53 @@
   padding: 0;
 }
 
+.tour-details__back-nav {
+  width: 100%;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 5% 0;
+}
+
+.tour-details__back-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgb(var(--color-gold-rgb) / 88%);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: var(--font-montserrat);
+  font-size: var(--fs-body-sm);
+  line-height: 1;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid rgb(var(--color-gold-rgb) / 56%);
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.tour-details__back-nav-link:hover,
+.tour-details__back-nav-link:focus-visible {
+  color: var(--color-gold);
+  border-bottom-color: rgb(var(--color-gold-rgb) / 100%);
+  transform: translateX(-2px);
+}
+
+.tour-details__back-nav-link:focus-visible {
+  outline: none;
+}
+
+.tour-details__back-nav-arrow {
+  display: inline-block;
+  font-size: 1.05em;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.tour-details__back-nav-link:hover .tour-details__back-nav-arrow,
+.tour-details__back-nav-link:focus-visible .tour-details__back-nav-arrow {
+  transform: translateX(-3px);
+}
+
 .tour-details__hero-content h1 {
   margin: 0;
   width: fit-content;
@@ -455,6 +502,10 @@
     height: 60vh;
   }
 
+  .tour-details__back-nav {
+    padding-top: clamp(1.25rem, 3vw, 2rem);
+  }
+
   .tour-details__story {
     min-height: max-content;
   }
@@ -577,6 +628,15 @@
 }
 
 @media (max-width: 600px) {
+  .tour-details__back-nav {
+    padding-inline: 1rem;
+  }
+
+  .tour-details__back-nav-link {
+    gap: 0.45rem;
+    font-size: var(--fs-caption);
+  }
+
   .tour-details__story h2 {
     width: 90vw;
   }

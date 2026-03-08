@@ -19,18 +19,29 @@ function Home() {
       </div>
 
       <div className="about-content-1">
-        <img className="about-content-1__vector--1" src={text} alt="" aria-hidden="true" />
+        <img
+          className="about-content-1__vector--1"
+          src={text}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
         <img
           className="about-content-1__vector about-content-1__vector--2"
           src={Vector1}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
         />
         <img
           className="about-content-1__vector about-content-1__vector--3"
           src={Vector2}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
         />
         <div className="about-content-1__main">
           <div className="about-content-1__para">
@@ -59,21 +70,33 @@ function Home() {
 
       <div className="about-gallery">
         <div className="about-gallery__side about-gallery__side--left">
-          <img src={Abt2} alt="Traveler by the river" />
+          <img src={Abt2} alt="Traveler by the river" loading="lazy" decoding="async" />
         </div>
 
         <div className="about-gallery__main">
-          <img src={Abt} alt="Mountain village landscape" />
+          <img src={Abt} alt="Mountain village landscape" loading="lazy" decoding="async" />
         </div>
 
         <div className="about-gallery__side about-gallery__side--right">
-          <img src={Abt3} alt="Traditional local food" />
+          <img src={Abt3} alt="Traditional local food" loading="lazy" decoding="async" />
         </div>
       </div>
       <div className="about-philosophy">
-        <img className="about-philosophy__vector" src={Vector3} alt="" aria-hidden="true" />
+        <img
+          className="about-philosophy__vector"
+          src={Vector3}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
         <div className="about-philosophy__image">
-          <img src={Phill} alt="Candle lights representing stillness and meditation" />
+          <img
+            src={Phill}
+            alt="Candle lights representing stillness and meditation"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <div className="about-philosophy__content">

@@ -10,6 +10,7 @@ function ResolvedImage({
   fallbackSources = [],
   alt,
   onError,
+  decoding = 'async',
   ...imgProps
 }: ResolvedImageProps) {
   const resolvedSources = [...sources, ...fallbackSources]
@@ -32,6 +33,7 @@ function ResolvedImage({
   return (
     <img
       {...imgProps}
+      decoding={decoding}
       src={resolvedSources[currentSourceIndex] ?? ''}
       alt={alt}
       onError={handleError}

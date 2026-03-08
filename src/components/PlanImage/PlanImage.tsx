@@ -5,7 +5,7 @@ type PlanImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
   plan: TravelPlan
 }
 
-function PlanImage({ plan, alt, onError, ...imgProps }: PlanImageProps) {
+function PlanImage({ plan, alt, onError, decoding = 'async', ...imgProps }: PlanImageProps) {
   const imageSources = useMemo(() => getPlanImageSources(plan), [plan])
   const [currentSourceIndex, setCurrentSourceIndex] = useState(0)
 
@@ -22,7 +22,15 @@ function PlanImage({ plan, alt, onError, ...imgProps }: PlanImageProps) {
     onError?.(event)
   }
 
-  return <img {...imgProps} src={imageSources[currentSourceIndex] ?? ''} alt={alt ?? plan.title} onError={handleError} />
+  return (
+    <img
+      {...imgProps}
+      decoding={decoding}
+      src={imageSources[currentSourceIndex] ?? ''}
+      alt={alt ?? plan.title}
+      onError={handleError}
+    />
+  )
 }
 
 export default PlanImage

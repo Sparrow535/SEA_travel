@@ -83,7 +83,12 @@ function Navbar() {
           aria-label="Spiritual Escape Adventure home"
           onClick={() => setIsOpen(false)}
         >
-          <img className="navbar__brand-logo" src="/logo.png" alt="Spiritual Escape Adventure" />
+          <img
+            className="navbar__brand-logo"
+            src="/logo.png"
+            alt="Spiritual Escape Adventure"
+            decoding="async"
+          />
         </Link>
 
         <Link className="navbar__contact" to="/contact" onClick={() => setIsOpen(false)}>
@@ -98,7 +103,16 @@ function Navbar() {
         onClick={() => setIsOpen(false)}
       >
         <div className="navbar__overlay-grid" onClick={(event) => event.stopPropagation()}>
-          <img className="navbar__overlay-vector" src={menuVector} alt="" aria-hidden="true" />
+          {isOpen ? (
+            <img
+              className="navbar__overlay-vector"
+              src={menuVector}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+            />
+          ) : null}
           <div className="navbar__overlay-left">
             <div className="navbar__overlay-links">
               {menuLinks.map((link) => (
@@ -137,7 +151,15 @@ function Navbar() {
 
           <div className="navbar__overlay-right">
             <div className="navbar__overlay-image-frame">
-              <img src={menuImage} alt="Monks gathered near a Bhutanese temple" />
+              {isOpen ? (
+                <img
+                  src={menuImage}
+                  alt="Monks gathered near a Bhutanese temple"
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                />
+              ) : null}
             </div>
           </div>
         </div>

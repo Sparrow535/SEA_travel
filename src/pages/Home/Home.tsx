@@ -54,13 +54,26 @@ function Home() {
         </div>
       </div>
       <div ref={firstContentRef} className="home-content-1">
-        <img className="home-content-1__vector" src={vector1} alt="" aria-hidden="true" />
+        <img
+          className="home-content-1__vector"
+          src={vector1}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
         <div className="small_header">
           <h5>01 WHY US</h5>
         </div>
         <div className="home-content-1__main">
           <div className="content_header">
-            <img src={contentHeader} alt="header" />
+            <img
+              src={contentHeader}
+              alt="header"
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
+            />
           </div>
           <div className="content_para">
             <p>
@@ -75,18 +88,25 @@ function Home() {
       <PopularTours />
       <div className="packages_section">
         <div className="container-1">
-          <img className="packages_section__vector" src={vector2} alt="" aria-hidden="true" />
+          <img
+            className="packages_section__vector"
+            src={vector2}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="container-1__left">
             <div className="eyebrow">03 Packages</div>
             <div className="text">YOUR CHOICE OF ADVENTURE</div>
           </div>
           <div className="container-1__right">
-            <img src={package1} alt="package" />
+            <img src={package1} alt="package" loading="lazy" decoding="async" fetchPriority="low" />
           </div>
         </div>
         <div className="container-2">
           <div className="container-2__left">
-            <img src={package2} alt="package" />
+            <img src={package2} alt="package" loading="lazy" decoding="async" fetchPriority="low" />
           </div>
           <div className="container-2__right">
             <nav className="package-links" aria-label="Package categories">
@@ -101,7 +121,14 @@ function Home() {
             </nav>
           </div>
         </div>
-        <img className="packages_section__vector-end" src={vector3} alt="" aria-hidden="true" />
+        <img
+          className="packages_section__vector-end"
+          src={vector3}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
 
       <div className="content-3">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getHourlyPopularPlans, getPlanPath, type TravelPlan } from '../../data/tours'
 import PlanImage from '../PlanImage/PlanImage'
@@ -16,6 +16,8 @@ function PopularTours() {
   const [featuredPlans, setFeaturedPlans] = useState<TravelPlan[]>(() => getHourlyPopularPlans())
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [isInView, setIsInView] = useState(false)
+  const galleryRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof window.setTimeout>
@@ -43,7 +45,7 @@ function PopularTours() {
   }, [featuredPlans])
 
   useEffect(() => {
-    if (featuredPlans.length <= 1 || isPaused) return
+    if (featuredPlans.length <= 1 || isPaused || !isInView) return
 
     const intervalId = window.setInterval(() => {
       setActiveIndex((currentIndex) => (currentIndex + 1) % featuredPlans.length)
@@ -52,7 +54,26 @@ function PopularTours() {
     return () => {
       window.clearInterval(intervalId)
     }
-  }, [featuredPlans.length, isPaused])
+  }, [featuredPlans.length, isPaused, isInView])
+
+  useEffect(() => {
+    const gallery = galleryRef.current
+
+    if (!gallery) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+      },
+      { threshold: 0.35 }
+    )
+
+    observer.observe(gallery)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const goToPrevious = () => {
     setActiveIndex(
@@ -75,6 +96,7 @@ function PopularTours() {
 
       <div
         className="popular-tours__gallery"
+        ref={galleryRef}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onFocusCapture={() => setIsPaused(true)}
@@ -95,7 +117,13 @@ function PopularTours() {
                 }`}
                 to={getPlanPath(plan)}
               >
-                <PlanImage plan={plan} alt={plan.title} />
+                <PlanImage
+                  plan={plan}
+                  alt={plan.title}
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                />
 
                 {!isCenter && <span className="popular-tours__peek-mask" aria-hidden="true" />}
 

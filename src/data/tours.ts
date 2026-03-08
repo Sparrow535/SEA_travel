@@ -774,6 +774,62 @@ const rawPlans: Omit<TravelPlan, 'galleryImages'>[] = [
   },
   {
     type: 'trek',
+    title: 'Chele La Ridge Trek',
+    shortDesc:
+      '9-day western Bhutan journey combining Paro, Haa, Thimphu, and Punakha with a scenic 3-day ridge trek across Chele La, Tiger’s Nest, high mountain camps, and sweeping Himalayan views.',
+    days: 9,
+    image: '/img/plans/treks/chele-la-ridge-trek/cover.jpg',
+    brochurePdf: '/pdf/plans/treks/chele-la-ridge-trek.pdf',
+    dayPlans: [
+      {
+        day: 1,
+        title: 'Arrival in Paro',
+        desc: 'Arrive in Paro, meet your guide, and settle into the valley. Depending on your arrival time, explore Rinpung Dzong, Ta Dzong, and Dungtse Lhakhang before an easy evening in Paro town.',
+      },
+      {
+        day: 2,
+        title: 'Paro to Haa Valley via Tiger’s Nest & Chele La',
+        desc: 'Hike to Paro Taktsang (Tiger’s Nest Monastery), then drive west across Chele La Pass with panoramic views of Jumolhari and Jichu Drake before descending into Haa Valley.',
+      },
+      {
+        day: 3,
+        title: 'Trek Day 1: Haa to Sagala Camp',
+        desc: 'Begin the trek near the Haa Valley floor, following trails through villages, cultivated fields, and yak herder camps before a final climb to scenic Sagala Camp at 3,550m.',
+      },
+      {
+        day: 4,
+        title: 'Trek Day 2: Sagala to High Ridge Camp',
+        desc: 'Climb to Sagala Pass for mountain views, then continue along high ridges with alternating ascents and descents through rhododendron meadows and forest to camp at 3,850m.',
+      },
+      {
+        day: 5,
+        title: 'Trek Day 3: High Ridge to Chele La via Kung Karpo',
+        desc: 'Traverse the ridge through alpine meadows and yak camps, reach sacred Kung Karpo, and enjoy expansive Himalayan views before descending to Chele La Pass and driving on to Thimphu.',
+      },
+      {
+        day: 6,
+        title: 'Thimphu Cultural Exploration',
+        desc: 'Visit the National Memorial Chorten, Buddha Dordenma, and the Takin Preserve, with time to explore Thimphu’s local market scene and city atmosphere.',
+      },
+      {
+        day: 7,
+        title: 'Thimphu to Punakha via Dochula Pass',
+        desc: 'Cross Dochula Pass and descend into Punakha Valley. Visit Chimi Lhakhang and explore Punakha Dzong at the confluence of the Pho Chhu and Mo Chhu rivers.',
+      },
+      {
+        day: 8,
+        title: 'Punakha Exploration & Return to Paro',
+        desc: 'Walk the suspension bridge over the Pho Chhu, visit Nalanda University and the nearby nunnery, then drive back through Thimphu and continue to Paro by evening.',
+      },
+      {
+        day: 9,
+        title: 'Departure from Paro',
+        desc: 'Enjoy a relaxed final morning in Paro with time for a last stroll or coffee before transferring to Paro International Airport for departure.',
+      },
+    ],
+  },
+  {
+    type: 'trek',
     title: 'Dagala (Thousand Lake Trek)',
     shortDesc:
       '5-day high-altitude trek across the Dagala range featuring alpine lakes, panoramic Himalayan views, yak herder camps, and pristine mountain landscapes.',

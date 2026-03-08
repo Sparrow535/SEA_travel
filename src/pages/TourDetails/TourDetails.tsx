@@ -35,11 +35,24 @@ function TourDetails() {
   const selectedDayPlan = tour.dayPlans[selectedDayIndex] ?? tour.dayPlans[0]
   const galleryImageSources = getPlanGalleryImageSources(tour)
   const coverImageSources = getPlanImageSources(tour)
+  const backToPackagesPath =
+    tour.type === 'cultural'
+      ? '/packages#heritage-paths'
+      : tour.type === 'festivals'
+        ? '/packages#sacred-celebrations'
+        : '/packages#summit-soul'
 
   return (
     <main className="tour-details">
       <section className="tour-details__hero">
-        <PlanImage className="tour-details__hero-image" plan={tour} alt={tour.title} />
+        <PlanImage
+          className="tour-details__hero-image"
+          plan={tour}
+          alt={tour.title}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
         <div className="tour-details__hero-overlay" aria-hidden="true" />
         <div className="tour-details__hero-content">
           <h1>{tour.title}</h1>
@@ -47,13 +60,20 @@ function TourDetails() {
       </section>
 
       <section className="tour-details__story">
-        <img className="tour-details__story-vector" src={introVector} alt="" aria-hidden="true" />
+        <img
+          className="tour-details__story-vector"
+          src={introVector}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
         <div className="tour-details__story-media tour-details__story-media--left">
-          <img src={introImageLeft} alt="" aria-hidden="true" />
+          <img src={introImageLeft} alt="" aria-hidden="true" loading="lazy" decoding="async" />
         </div>
         <h2>THE KINGDOM&apos;S SOUL</h2>
         <div className="tour-details__story-media tour-details__story-media--right">
-          <img src={introImageRight} alt="" aria-hidden="true" />
+          <img src={introImageRight} alt="" aria-hidden="true" loading="lazy" decoding="async" />
         </div>
         <div className="tour-details__story-copy">
           <p>{tour.shortDesc}</p>
@@ -68,18 +88,31 @@ function TourDetails() {
         </div>
       </section>
 
+      <div className="tour-details__back-nav">
+        <Link className="tour-details__back-nav-link" to={backToPackagesPath}>
+          <span className="tour-details__back-nav-arrow" aria-hidden="true">
+            &larr;
+          </span>
+          <span>Back to Packages</span>
+        </Link>
+      </div>
+
       <section className="tour-details__planner" aria-labelledby="tour-details-planner-title">
         <img
           className="tour-details__planner-vector tour-details__planner-vector--top"
           src={itineraryVectorTop}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
         />
         <img
           className="tour-details__planner-vector tour-details__planner-vector--bottom"
           src={itineraryVectorBottom}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
         />
 
         <div className="tour-details__planner-list">
@@ -122,7 +155,7 @@ function TourDetails() {
         </div>
 
         <div className="tour-details__planner-preview">
-          <img src={itineraryImage} alt="" aria-hidden="true" />
+          <img src={itineraryImage} alt="" aria-hidden="true" loading="lazy" decoding="async" />
           <div className="tour-details__planner-overlay" />
           <div className="tour-details__planner-copy">
             <p className="tour-details__planner-day-label">Day {selectedDayPlan.day}</p>
@@ -139,7 +172,10 @@ function TourDetails() {
 
         <div className="tour-details__gallery-grid">
           {galleryImageSources.map((imageSources, index) => (
-            <figure className="tour-details__gallery-item" key={`${tour.title}-gallery-${index + 1}`}>
+            <figure
+              className="tour-details__gallery-item"
+              key={`${tour.title}-gallery-${index + 1}`}
+            >
               <ResolvedImage
                 className="tour-details__gallery-image"
                 sources={imageSources}

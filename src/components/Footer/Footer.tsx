@@ -18,7 +18,14 @@ function Footer() {
 
   return (
     <div className="footer" id="contact">
-      <img className="footer__vector" src={footerVector} alt="" aria-hidden="true" />
+      <img
+        className="footer__vector"
+        src={footerVector}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
       <div className="first">
         <div className="header">
           <div className="eyebrow">Address</div>
