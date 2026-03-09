@@ -929,6 +929,78 @@ const rawPlans: Omit<TravelPlan, 'galleryImages'>[] = [
 
   {
     type: 'trek',
+    title: 'Nub Tshonapata Trek',
+    shortDesc:
+      '12-day western Bhutan journey combining Paro, Haa, Thimphu, and Punakha with a remote 5-day high-altitude trek to Nub Tshonapata Lake, passing alpine meadows, sacred lakes, yak herder camps, and expansive Himalayan viewpoints.',
+    days: 12,
+    image: '/img/plans/treks/nub-tshonapata-trek/cover.jpg',
+    brochurePdf: '/pdf/plans/treks/nub-tshonapata-trek.pdf',
+    dayPlans: [
+      {
+        day: 1,
+        title: 'Arrival in Paro',
+        desc: 'Arrive at Paro International Airport, meet your guide, and transfer to your hotel. If time allows, visit Rinpung Dzong and Ta Dzong before an evening stroll through Paro town.',
+      },
+      {
+        day: 2,
+        title: "Paro to Haa Valley via Tiger's Nest & Chele La",
+        desc: "Hike to Tiger's Nest Monastery through pine forest in the morning, then drive across Chele La Pass with Himalayan views before descending into the tranquil Haa Valley.",
+      },
+      {
+        day: 3,
+        title: 'Trek Day 1: Haa to Chhewakha Camp',
+        desc: 'Begin trekking from Haa Valley through pine and rhododendron forests, passing meadows, streams, and yak herder territory before reaching the forest clearing at Chhewakha.',
+      },
+      {
+        day: 4,
+        title: 'Trek Day 2: Chhewakha to Tshokam Lake',
+        desc: 'Climb steadily through alpine meadows and past yak camps, crossing ridges with expanding mountain views before reaching pristine Tshokam Lake.',
+      },
+      {
+        day: 5,
+        title: 'Trek Day 3: Tshokam to Nub Tshonapata Lake',
+        desc: 'Continue upward across rocky terrain and smaller lakes, traversing high ridges with panoramic views before arriving at Nub Tshonapata Lake, the centerpiece of the trek.',
+      },
+      {
+        day: 6,
+        title: 'Trek Day 4: Acclimatization & Exploration',
+        desc: 'Spend a rest day at the lake with options to climb Jomo Peak for wider views, visit nearby lakes such as Relitso and Hentsho, or relax by the water and absorb the landscape.',
+      },
+      {
+        day: 7,
+        title: 'Trek Day 5: Nub Tshonapata to Jangchulakha',
+        desc: 'Descend through alpine meadows, smaller lakes, and yak grazing grounds as the scenery becomes greener, ending at sheltered Jangchulakha camp in a forested valley.',
+      },
+      {
+        day: 8,
+        title: 'Trek Day 6: Jangchulakha to Haa Valley',
+        desc: 'Complete the final trekking day through rhododendron, pine, and hemlock forests, passing farmhouses and prayer flags before reaching Haa Valley and transferring to your hotel.',
+      },
+      {
+        day: 9,
+        title: 'Haa Valley to Thimphu',
+        desc: 'Visit Lhakhang Karpo and Lhakhang Nagpo in Haa, then drive to Thimphu with a stop at Dochula Pass to view the 108 chortens and Himalayan panorama when weather permits.',
+      },
+      {
+        day: 10,
+        title: 'Thimphu Cultural Exploration',
+        desc: 'Explore the National Memorial Chorten, Buddha Dordenma, and the Takin Preserve, with time for the weekend market and a personalized stamp stop at the Bhutan Post Office.',
+      },
+      {
+        day: 11,
+        title: 'Thimphu to Punakha',
+        desc: 'Drive over Dochula Pass into Punakha Valley, visit Chimi Lhakhang, explore Punakha Dzong at the river confluence, and walk across the long suspension bridge.',
+      },
+      {
+        day: 12,
+        title: 'Punakha to Paro & Departure',
+        desc: 'Optionally hike to Khamsum Yulley Namgyal Chorten if time permits, then drive back toward Paro with a final lunch stop and transfer to Paro International Airport for departure.',
+      },
+    ],
+  },
+
+  {
+    type: 'trek',
     title: 'Druk Path Trek',
     shortDesc:
       '6-day classic trek linking Paro and Thimphu through high mountain passes, pristine alpine lakes, yak pastures, and panoramic Himalayan landscapes.',
